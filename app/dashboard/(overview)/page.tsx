@@ -5,7 +5,6 @@ import { lusitana } from '@/app/ui/fonts';
 import Loading from './loading';
 import { Suspense } from 'react';
 import { fetchCardData } from '@/app/lib/data';
-export const dynamic = "force-dynamic";
 import CardWrapper from '@/app/ui/dashboard/cards';
 import {
   RevenueChartSkeleton,
