@@ -185,6 +185,7 @@ export async function fetchCustomers() {
 }
 
 export async function fetchFilteredCustomers(query: string) {
+  'use cache'
   try {
     const data = await sql<CustomersTableType[]>`
 		SELECT
