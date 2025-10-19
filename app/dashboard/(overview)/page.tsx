@@ -5,10 +5,9 @@ import { lusitana } from '@/app/ui/fonts';
 import Loading from './loading';
 import { Suspense } from 'react';
 import { RevenueChartSkeleton } from '@/app/ui/skeletons';
-import { fetchLatestInvoices, fetchCardData } from '@/app/lib/data';
+import { fetchCardData } from '@/app/lib/data';
 export const dynamic = "force-dynamic";
 export default async function Page() {
-  const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfInvoices,
     numberOfCustomers,
@@ -35,7 +34,9 @@ export default async function Page() {
         <Suspense fallback={<RevenueChartSkeleton/>}>
           <RevenueChart/>
         </Suspense>
-        <LatestInvoices latestInvoices={latestInvoices} /> 
+        <Suspense fallback={<RevenueChartSkeleton/>}>
+          <LatestInvoices/> 
+        </Suspense>
       </div>
     </main>
   );
